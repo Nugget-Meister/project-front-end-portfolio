@@ -5,6 +5,14 @@ let ships_url = "https://www.swapi.tech/api/starships/"
 let formShipSelection = document.getElementById("ship")
 
 
+// Prevent default on submit
+let form = document.querySelector("form")
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addToList();
+}) 
+
+
 // function getVehicles() {}
 
 function getShipList() {
@@ -25,6 +33,12 @@ function createShipSelector(name){
     
     return selector
 }
+
+function createSelectedItem() {
+    
+}
+
+function addToList() {}
 
 // console.log(formShipSelection)
 // getShipList()

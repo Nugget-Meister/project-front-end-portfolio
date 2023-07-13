@@ -15,5 +15,16 @@ body {
 
 #container {
     background-color: var(--davys-gray);
-    grid-template-rows: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* Split the list and the form adder down the middle */
+#add-item {
+    grid-column: 1;
+}
+
+#item-list{
+    grid-column: 2;
 }
