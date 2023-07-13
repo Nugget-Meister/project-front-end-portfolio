@@ -28,3 +28,7 @@ body {
 #item-list{
     grid-column: 2;
 }
+
+h2 {
+    margin: 0;
+}
