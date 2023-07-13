@@ -1,11 +1,30 @@
 let base_url = "https://www.swapi.tech/api/"
 let ships_url = "https://www.swapi.tech/api/starships/"
-let vehicles_url = "https://www.swapi.tech/api/vehicles"
+// let vehicles_url = "https://www.swapi.tech/api/vehicles"
 
-let examplegoogle = "https://www.google.com/search?tbm=isch&q=Sand+Crawler"
+let formShipSelection = document.getElementById("ship")
 
-console.log(base_url)
 
-function getVehicles() {}
+// function getVehicles() {}
 
-function getShips() {}
+function getShipList() {
+    let result = fetch(ships_url)
+    .then(data => data.json())
+    .then(json => {
+        for(ship of json.results){
+            formShipSelection.append(createShipSelector(ship.name))
+            console.log(ship.name)
+        }    
+    })
+}
+
+function createShipSelector(name){
+    let selector = document.createElement("option")
+    selector.setAttribute("value", name)
+    selector.innerText = name
+    
+    return selector
+}
+
+// console.log(formShipSelection)
+getShipList()

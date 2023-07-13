@@ -13,12 +13,14 @@
     "model": "DS-1 Orbital Battle Station",
     "name": "Death Star",
     "passengers": "843342",
-    "films": [ "https://www.swapi.tech/api/films/1/" ],
+    "films": [
+        "https://www.swapi.tech/api/films/1/"
+    ],
     "pilots": [],
     "starship_class": "Deep Space Mobile Battlestation",
     "url": "https://www.swapi.tech/api/starships/9/"
-  },
-  {
+},
+{
     "cargo_capacity": "50000",
     "consumables": "2 months",
     "cost_in_credits": "150000",
@@ -32,8 +34,69 @@
     "name": "Sand Crawler",
     "passengers": "30",
     "pilots": [],
-    "films": [ "https://www.swapi.tech/api/films/1/" ],
+    "films": [
+        "https://www.swapi.tech/api/films/1/"
+    ],
     "url": "https://www.swapi.tech/api/vehicles/4/",
     "vehicle_class": "wheeled"
-  }
+}
 
+  {
+    "message": "ok",
+    "total_records": 36,
+    "total_pages": 4,
+    "previous": null,
+    "next": "https://www.swapi.tech/api/starships?page=2&limit=10",
+    "results": [
+        {
+            "uid": "2",
+            "name": "CR90 corvette",
+            "url": "https://www.swapi.tech/api/starships/2"
+        },
+        {
+            "uid": "3",
+            "name": "Star Destroyer",
+            "url": "https://www.swapi.tech/api/starships/3"
+        },
+        {
+            "uid": "5",
+            "name": "Sentinel-class landing craft",
+            "url": "https://www.swapi.tech/api/starships/5"
+        },
+        {
+            "uid": "9",
+            "name": "Death Star",
+            "url": "https://www.swapi.tech/api/starships/9"
+        },
+        {
+            "uid": "11",
+            "name": "Y-wing",
+            "url": "https://www.swapi.tech/api/starships/11"
+        },
+        {
+            "uid": "10",
+            "name": "Millennium Falcon",
+            "url": "https://www.swapi.tech/api/starships/10"
+        },
+        {
+            "uid": "13",
+            "name": "TIE Advanced x1",
+            "url": "https://www.swapi.tech/api/starships/13"
+        },
+        {
+            "uid": "15",
+            "name": "Executor",
+            "url": "https://www.swapi.tech/api/starships/15"
+        },
+        {
+            "uid": "12",
+            "name": "X-wing",
+            "url": "https://www.swapi.tech/api/starships/12"
+        },
+        {
+            "uid": "17",
+            "name": "Rebel transport",
+            "url": "https://www.swapi.tech/api/starships/17"
+        }
+    ]
+}
