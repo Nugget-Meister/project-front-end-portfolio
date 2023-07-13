@@ -20,11 +20,11 @@ function getShipList() {
 
 function createShipSelector(name){
     let selector = document.createElement("option")
-    selector.setAttribute("value", name)
+    selector.setAttribute("value", "uid")
     selector.innerText = name
     
     return selector
 }
 
 // console.log(formShipSelection)
-getShipList()
+// getShipList()
