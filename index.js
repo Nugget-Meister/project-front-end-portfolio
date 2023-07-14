@@ -71,6 +71,7 @@ function createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, am
     let section = document.createElement("section")
     //Id for duplicate protection
     section.setAttribute("id", id)
+    section.classList.add('item-in-list')
 
     //Word spans
     let titleManufacturer = document.createElement("span")
@@ -108,6 +109,7 @@ function createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, am
 
     //Append
     section.append(shipName)
+    section.append(titleManufacturer,dataManufacturer,document.createElement("br"))
     section.append(titleManufacturer,dataManufacturer,document.createElement("br"))
 
     return section

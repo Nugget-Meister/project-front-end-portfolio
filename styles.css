@@ -27,8 +27,16 @@ body {
 
 #item-list{
     grid-column: 2;
+    padding: 10px;
 }
 
 h2 {
     margin: 0;
+}
+
+/* Items in list */
+
+.item-in-list{
+    background-color: var(--cadet-gray);
+    padding: 10px;
 }
