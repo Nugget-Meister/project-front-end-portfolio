@@ -9,15 +9,21 @@
 </head>
 <body>
     <h1>Fleet Command</h1>
+    <div class="loading">
+        <!-- <h2>Populating lists please wait...</h2> -->
+    </div>
     <section id="container">
         <div id="add-item">
             <section id="addShip">
                 <form id="formShip">
                     <legend>Select A ship</legend>
                     <label for="ship">Ship</label>
-                    <select name="ship" id="ship">
-                        <option value="CR90 corvette">CR90 corvette</option>
+                    <select name="ship" id="ship" required>
+                        <option value="2">CR90 corvette</option>
                     </select><br>
+                    <!-- <label for="amount" >Amount
+                        <input type="number" name="amount" Required/>
+                    </label> -->
                     <button type="reset">Reset</button>
                     <button type="submit">Submit</button>
                 </form>

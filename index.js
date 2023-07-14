@@ -8,12 +8,17 @@ let formShipSelection = document.getElementById("ship")
 // Prevent default on submit
 let form = document.querySelector("form")
 form.addEventListener("submit", (e) => {
+    let shipName = e.target.ship.innerText
+    let shipID = e.target.ship.value
+
     e.preventDefault();
-    addToList();
+    addToList(shipName, shipID);
+
+
 }) 
 
 
-// function getVehicles() {}
+// Api call for information then populate list 
 
 function getShipList() {
     let result = fetch(ships_url)
@@ -26,6 +31,8 @@ function getShipList() {
     })
 }
 
+// Create option for a form
+
 function createShipSelector(name){
     let selector = document.createElement("option")
     selector.setAttribute("value", "uid")
@@ -34,9 +41,9 @@ function createShipSelector(name){
     return selector
 }
 
-function createSelectedItem() {
+function createSelectedItem(name, id) {
     let section = document.createElement("section")
-    section.setAttribute("id", ":)")
+    section.setAttribute("id", id)
 
     //Word spans
     let titleManufacturer = document.createElement("span")
@@ -70,12 +77,16 @@ function createSelectedItem() {
     return section
 }
 
-function addToList() {
+function addToList(name, id) {
     let itemList = document.getElementById("item-list")
 
-//    if(document.getElementById())
-    itemList.append(createSelectedItem())
+    if(!document.getElementById(id)) {
+        itemList.append(createSelectedItem(name, id))
+    } else {
+        //Should add an element to the dom when item exists
+    }
+    
 }
 
-// console.log(formShipSelection)
+
 // getShipList()
