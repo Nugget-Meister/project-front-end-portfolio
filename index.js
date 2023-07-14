@@ -35,10 +35,47 @@ function createShipSelector(name){
 }
 
 function createSelectedItem() {
+    let section = document.createElement("section")
+    section.setAttribute("id", ":)")
+
+    //Word spans
+    let titleManufacturer = document.createElement("span")
+    let titleModel = document.createElement("span")
+    let titleCost = document.createElement("span")
+    let titleCargo = document.createElement("span")
+    let titleCrew = document.createElement("span")
+
+    //Data Spans
+    let shipName = document.createElement("h2")
+    let dataManufacturer = document.createElement("span")
+    let dataModel = document.createElement("span")
+    let dataCost = document.createElement("span")
+    let dataCargo = document.createElement("span")
+    let dataCrew = document.createElement("span")
+   
+    // Data Text
     
+
+    //Title Text
+    titleManufacturer.innerText = "Manufacturer: "
+    titleModel.innerText = "Model: "
+    titleCost.innerText = "Cost: "
+    titleCargo.innerText = "Cargo Cap: "
+    titleCrew.innerText = "Required Crew: "
+
+    //Append
+    section.append(shipName)
+    section.append(titleManufacturer,dataManufacturer,document.createElement("br"))
+
+    return section
 }
 
-function addToList() {}
+function addToList() {
+    let itemList = document.getElementById("item-list")
+
+//    if(document.getElementById())
+    itemList.append(createSelectedItem())
+}
 
 // console.log(formShipSelection)
 // getShipList()
