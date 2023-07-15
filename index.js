@@ -1,9 +1,6 @@
-let base_url = "https://www.swapi.tech/api/"
-let ships_url = "https://www.swapi.tech/api/starships/"
-// let vehicles_url = "https://www.swapi.tech/api/vehicles"
+// let ships_url = "https://www.swapi.tech/api/starships/"
 
-
-
+import { getShipList, getShipDetails, ships_url } from "./modules/api_calls.js";
 
 // Prevent default on submit
 let form = document.querySelector("form")
@@ -24,48 +21,42 @@ form.addEventListener("submit", (e) => {
 //-- API CALLS
 // Api call for information then populate list 
 
-function getShipList() {
-    let formShipSelection = document.getElementById("ship")
-    let result = fetch(ships_url)
-    .then(data => data.json())
-    .then(json => {
-        for(ship of json.results){
-            formShipSelection.append(createShipSelector(ship.name))
-            console.log(ship.name)
-        }    
-    })
-}
+// function getShipList() {
+//     let formShipSelection = document.getElementById("ship")
+//     let result = fetch(ships_url)
+//     .then(data => data.json())
+//     .then(json => {
+//         for(ship of json.results){
+//             formShipSelection.append(createShipSelector(ship.name))
+//             console.log(ship.name)
+//         }    
+//     })
+// }
 
-function getShipDetails(id, name, amount) {
-    let result = fetch(ships_url+id)
-    .then(data => data.json())
-    .then(json => {
-        console.log(json.result.properties)
-        return json.result.properties
-    })
-    .then(result => {
-        let thisManufacturer = result.manufacturer
-        let thisModel = result.model
-        let thisCost = result.cost_in_credits
-        let thisCargo = result.cargo_capacity
-        let thisCrew = result.crew
+// function getShipDetails(id, name, amount) {
+//     let result = fetch(ships_url+id)
+//     .then(data => data.json())
+//     .then(json => {
+//         console.log(json.result.properties)
+//         return json.result.properties
+//     })
+//     .then(result => {
+//         let thisManufacturer = result.manufacturer
+//         let thisModel = result.model
+//         let thisCost = result.cost_in_credits
+//         let thisCargo = result.cargo_capacity
+//         let thisCrew = result.crew
 
-        addToList(name, id, thisManufacturer, thisModel, thisCost, thisCargo, thisCrew, amount);
-    })
-}
+//         addToList(name, id, thisManufacturer, thisModel, thisCost, thisCargo, thisCrew, amount);
+//     })
+// }
 
 
 
 //-- ITEM CREATORS
 // Create option for a form
 
-function createShipSelector(name){
-    let selector = document.createElement("option")
-    selector.setAttribute("value", "uid")
-    selector.innerText = name
-    
-    return selector
-}
+
 
 function createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, amount) {
     let section = document.createElement("section")
@@ -153,7 +144,9 @@ function incrementAmount(amount){
     
 }
 
-
-
 // getShipList()
 
+export {
+    createSelectedItem,
+    addToList
+}
