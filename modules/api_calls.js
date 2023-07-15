@@ -6,6 +6,14 @@ import {
 let ships_url = "https://www.swapi.tech/api/starships"
 
 
+function createShipSelector(name, type){
+    let selector = document.createElement(type)
+    selector.setAttribute("value", "uid")
+    selector.innerText = name
+    
+    return selector
+}
+
 function getShipList(page) {
     let formShipSelection = document.getElementById("ship")
     let result = fetch(`${ships_url}?page=${page}&limit=10`)
@@ -14,7 +22,7 @@ function getShipList(page) {
         console.log(json)
 
         for(let ship of json.results){
-            formShipSelection.append(createShipSelector(ship.name))
+            formShipSelection.append(createShipSelector(ship.name, "option"))
             console.log(ship.name)
         }    
     })
@@ -39,13 +47,7 @@ function getShipDetails(id, name, amount) {
     })
 }
 
-function createShipSelector(name){
-    let selector = document.createElement("option")
-    selector.setAttribute("value", "uid")
-    selector.innerText = name
-    
-    return selector
-}
+
 
 
 export {getShipList, getShipDetails, createShipSelector, ships_url}

@@ -1,0 +1,12 @@
+:root{
+    --naples-yellow: #f2dc5dff;
+    --davys-gray: #515052ff;
+    --cadet-gray: #92b2b8ff;
+    --jet: #333138ff;
+    --columbia-blue: #aed4e6ff;
+}
+
+.ship-list {
+    background-color: var(--naples-yellow);
+    border-radius: 25px;
+}
