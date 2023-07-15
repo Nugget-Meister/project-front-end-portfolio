@@ -4,19 +4,22 @@ import { getShipList, getShipDetails, ships_url } from "./modules/api_calls.js";
 
 // Prevent default on submit
 let form = document.querySelector("form")
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let shipName = e.target.ship.innerText
-    let shipID = e.target.ship.value
-    let shipAmount = e.target.amount.value
 
-    if(!document.getElementById(shipID)) {
-        getShipDetails(shipID, shipName, shipAmount)
-    } else {
-        //Should add an element to the dom when item exists
-    }
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let shipName = e.target.ship.innerText
+        let shipID = e.target.ship.value
+        let shipAmount = e.target.amount.value
+    
+        if(!document.getElementById(shipID)) {
+            getShipDetails(shipID, shipName, shipAmount)
+        } else {
+            //Should add an element to the dom when item exists
+        }
+    
+    }) 
 
-}) 
+
 
 //-- API CALLS
 // Api call for information then populate list 
@@ -144,7 +147,7 @@ function incrementAmount(amount){
     
 }
 
-// getShipList(1)
+// getShipList(1,"ship","option")
 
 export {
     createSelectedItem,

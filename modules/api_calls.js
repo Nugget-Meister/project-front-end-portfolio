@@ -14,15 +14,15 @@ function createShipSelector(name, type){
     return selector
 }
 
-function getShipList(page) {
-    let formShipSelection = document.getElementById("ship")
+function getShipList(page, targetID, elementType) {
+    let formShipSelection = document.getElementById(targetID)
     let result = fetch(`${ships_url}?page=${page}&limit=10`)
     .then(data => data.json())
     .then(json => {
         console.log(json)
 
         for(let ship of json.results){
-            formShipSelection.append(createShipSelector(ship.name, "option"))
+            formShipSelection.append(createShipSelector(ship.name, elementType))
             console.log(ship.name)
         }    
     })
@@ -30,9 +30,10 @@ function getShipList(page) {
 
 
 function getShipDetails(id, name, amount) {
-    let result = fetch(ships_url+id)
+    let result = fetch(ships_url+"/"+id)
     .then(data => data.json())
     .then(json => {
+        console.log(json)
         console.log(json.result.properties)
         return json.result.properties
     })
