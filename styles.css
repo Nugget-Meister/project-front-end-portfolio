@@ -6,8 +6,34 @@
     --jet: #333138ff;
     --columbia-blue: #aed4e6ff;
 }
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+
+/* Nav Bar */
+.navbar{
+
+    display: inline-flex;
+    width: 100%;
+}
+
+a {
+    transition: 250ms;
+    padding: 10px;
+    width: 33vw;
+    text-align: center;
+    background-color: rgb(156, 138, 32);
+    border-radius: 25px 25px 0px 0px;
+    color: white;
+    font-family: Tektur, sans-serif;
+    text-decoration: none;
+
+}
+
+a:hover {
+    transition: 250ms;
+    width: 35vh;
+    background-color: rgb(255, 248, 209);
+    color: black;
+}
 
 /* Main Elements */
 body {
