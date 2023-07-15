@@ -22,8 +22,13 @@ function getShipList(page, targetID, elementType) {
         console.log(json)
 
         for(let ship of json.results){
-            formShipSelection.append(createShipSelector(ship.name, elementType))
-            console.log(ship.name)
+            if(elementType != "option") {
+                formShipSelection.append(createShipSelector(ship.name, elementType))
+            } else{
+                formShipSelection.append(createShipSelector(ship.name, elementType))
+            }
+            
+            // console.log(ship.name)
         }    
     })
 }

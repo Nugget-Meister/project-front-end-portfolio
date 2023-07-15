@@ -6,7 +6,22 @@
     --columbia-blue: #aed4e6ff;
 }
 
-.ship-list {
-    background-color: var(--naples-yellow);
+#ship-list {
+    background-color: var(--jet);
     border-radius: 25px;
+    border-color: var(--naples-yellow);
+    border-style: solid;
+    padding: 10px;
+    display: grid;
+    font-family: Orbitron;
+    padding: 5vw
 }
+
+#ship-list span {
+    padding: 1vw;
+}
+#ship-list span:hover {
+  
+    background-color: gray;
+}
+

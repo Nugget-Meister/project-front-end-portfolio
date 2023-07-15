@@ -13,9 +13,6 @@
     display: inline-flex;
     width: 100%;
 }
-.active {
-    
-}
 
 a {
     transition: 250ms;

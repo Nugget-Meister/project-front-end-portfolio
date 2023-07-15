@@ -4,7 +4,7 @@ import { getShipList, getShipDetails, ships_url } from "./modules/api_calls.js";
 
 // Prevent default on submit
 let form = document.querySelector("form")
-
+if(form) {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         let shipName = e.target.ship.innerText
@@ -18,7 +18,8 @@ let form = document.querySelector("form")
         }
     
     }) 
-
+}
+  
 
 
 //-- API CALLS
