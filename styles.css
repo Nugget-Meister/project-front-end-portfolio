@@ -10,9 +10,11 @@
 
 /* Nav Bar */
 .navbar{
-
     display: inline-flex;
     width: 100%;
+}
+.active {
+    
 }
 
 a {
