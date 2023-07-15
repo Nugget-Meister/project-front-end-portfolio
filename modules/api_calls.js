@@ -3,11 +3,12 @@ import {
     addToList
 } from "../index.js"
 
-let ships_url = "https://www.swapi.tech/api/starships/"
+let ships_url = "https://www.swapi.tech/api/starships"
 
-function getShipList() {
+
+function getShipList(page) {
     let formShipSelection = document.getElementById("ship")
-    let result = fetch(ships_url)
+    let result = fetch(`${ships_url}?page=${page}&limit=10`)
     .then(data => data.json())
     .then(json => {
         console.log(json)
