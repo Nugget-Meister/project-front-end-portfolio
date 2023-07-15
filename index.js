@@ -107,23 +107,52 @@ function createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, am
     titleCrew.innerText = "Required Crew: "
     titleAmount.innerText = "Amount: "
 
-    //Append
+    // Buttons
+    let buttonIncrement = document.createElement("button")
+    let buttonDecrement = document.createElement("button")
+
+    // Button Inner Text
+    buttonIncrement.innerText = '+'
+    buttonDecrement.innerText = '-'
+
+    // Event Listeners for Buttons
+    buttonIncrement.addEventListener("click", () => {     
+        if(Number(dataAmount.innerText) < 10) {
+            dataAmount.innerText = Number(dataAmount.innerText) + 1
+        }   
+    })
+    buttonDecrement.addEventListener("click", () => {
+        if(Number(dataAmount.innerText) > 0) {
+            dataAmount.innerText = Number(dataAmount.innerText) - 1
+        }
+    })
+
+
+
+    //Appending Elements
     section.append(shipName)
-    section.append(titleManufacturer,dataManufacturer,document.createElement("br"))
-    section.append(titleManufacturer,dataManufacturer,document.createElement("br"))
+    section.append(titleManufacturer, dataManufacturer,document.createElement("br"))
+    section.append(titleModel, dataModel,document.createElement("br"))
+    section.append(titleCost, dataCost,document.createElement("br"))
+    section.append(titleCargo, dataCargo,document.createElement("br"))
+    section.append(titleCrew, dataCrew,document.createElement("br"))
+    section.append(titleAmount, buttonIncrement,dataAmount,buttonDecrement, document.createElement("br"))
 
     return section
 }
 
-// Checks if item already exists, creates new if not, increments if so
+// Gets itemlist then appends created item to list
 
 function addToList(name, id, manufacturer, model, cost, cargo, crew, amount) {
     let itemList = document.getElementById("item-list")
-    itemList.append(createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, amount))
+    itemList.append(createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, amount))    
+}
 
-    
+//-- Page manipulators
+function incrementAmount(amount){
     
 }
+
 
 
 // getShipList()

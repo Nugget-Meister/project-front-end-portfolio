@@ -6,11 +6,16 @@
     --jet: #333138ff;
     --columbia-blue: #aed4e6ff;
 }
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
-
+/* Main Elements */
 body {
     background-color: var(--jet);
     color: white;
+}
+h1 {
+    font-family: 'Orbitron', sans-serif;
 }
 
 #container {
@@ -37,6 +42,12 @@ h2 {
 /* Items in list */
 
 .item-in-list{
+    transition: 250ms;
     background-color: var(--cadet-gray);
     padding: 10px;
+}
+
+.item-in-list:hover {
+    transition: 250ms;
+    background-color: var(--jet);
 }
