@@ -59,7 +59,6 @@ function createItemDetailsII(source, targets, titles) {
 function addToListII(source, targetID, targets, titles) {
     let thisTarget = document.getElementById(targetID)
     // console.log(thisTarget)
-
     thisTarget.append(createItemDetailsII(source,targets,titles))
 }
 
@@ -76,6 +75,8 @@ function addListenerToButtons() {
             let idCheck = document.getElementById(id)
             if(idCheck){
                 console.log("item exists")
+                idCheck.classList.toggle("hidden")
+                
             } else {
                 let result = fetch(ships_url+"/"+id)
                 .then(data => data.json())
