@@ -19,7 +19,7 @@ Hello Commander! Welcome to fleet command. With the full might of the New Galact
 
 2. Select a number between 1-10. The maximum amount of ships you can have of a given type in a fleet is 10. Any **higher** will result in an error showing up on the DOM. Attempting to put less than 1 will also have an error show up on the DOM
 
-On the right hand side of the screen or on the bottom, You will see a brief description of the ships stats on your screen. This information inclui
+On the right hand side of the screen or on the bottom, You will see a brief description of the ships stats on your screen. This information includes
 
 
 source for song yd - openGameArt - https://opengameart.org/content/background-space-track

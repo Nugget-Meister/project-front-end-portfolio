@@ -2,6 +2,12 @@
 
 import { getShipList, getShipDetails, ships_url } from "./modules/api_calls.js";
 
+let errorSound = document.createElement("AUDIO")
+let successSound = document.createElement("AUDIO")
+let incrementSound = document.createElement("AUDIO")
+let decrementSound = document.createElement("AUDIO")
+let removeSound = document.createElement("AUDIO")
+
 // Prevent default on submit
 let form = document.querySelector("form")
 if(form) {
@@ -139,12 +145,7 @@ function addToList(name, id, manufacturer, model, cost, cargo, crew, amount) {
 }
 
 function soundLoaderIndex(){
-    let errorSound = document.createElement("AUDIO")
-    let successSound = document.createElement("AUDIO")
-    let incrementSound = document.createElement("AUDIO")
-    let decrementSound = document.createElement("AUDIO")
-    let removeSound = document.createElement("AUDIO")
-    
+
     errorSound.src = "./data/music/misc_menu_4.wav"
     successSound.src = "./data/music/sharp_echo.wav"
     incrementSound.src = "./data/music/beep_01.ogg"
