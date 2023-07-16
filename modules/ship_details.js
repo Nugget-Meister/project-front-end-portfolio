@@ -2,6 +2,7 @@ import { getShipList, getShipDetails, ships_url } from "../modules/api_calls.js"
 
 
 let shipList = document.getElementById("ship-list")
+let shipDetails = document.getElementById("ship-details")
 
 
 let neededTargets = [
@@ -68,15 +69,24 @@ function addToListII(source, targetID, targets, titles) {
 function addListenerToButtons() {
     for(let ship of shipList.children){
         // console.log(ship)
-
         ship.addEventListener("click", () => {
             // console.log(ship.getAttribute("value"))
             let id = ship.getAttribute("value")
             let idCheck = document.getElementById(id)
+            
+            //Hide everything
+            for(let child of shipDetails.children){
+                if(child.classList[0] != "hidden"){
+                    child.classList.toggle("hidden")
+                }
+            }
             if(idCheck){
                 console.log("item exists")
-                idCheck.classList.toggle("hidden")
-                
+                //Show element clicked on
+                if(idCheck.classList[0] == "hidden") {
+                    idCheck.classList.toggle("hidden")
+                }
+        
             } else {
                 let result = fetch(ships_url+"/"+id)
                 .then(data => data.json())
@@ -92,7 +102,7 @@ function addListenerToButtons() {
 
 
 
-// getShipList(1,"ship-list","span")
+getShipList(1,"ship-list","span")
 
 setTimeout(() => {
     addListenerToButtons()
