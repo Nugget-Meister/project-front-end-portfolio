@@ -53,26 +53,70 @@ Atmospheric Speed: 950
 
 # Functions
 
-## API Calls.js
+# API Calls.js
 
-### createShipSelector (name, uid, elementType)
-Used to dynamically generate a list of ships after po
+## createShipSelector (name, uid, elementType)
+Intermediary function used to generate an element with the ships name and uid, allows to be used to create an element of any type.
+
+- `name` {string}- Name of the ship in question, will be set as the inner text for the element
+- `uid` {string} - The uid of the ship in question. This us used when making the api request for a specific ship.
+- `elementType` {string} - The type of element to be created. 
+
+## getShipList (page, targetID, elementType)
+Makes an api call to get all of the available ships from SWAPI then makes generates the list using `createShipSelector()`. Targets the id of a specific element to inject list into.
+
+- `page` {string} - Which page you wish to load from SWAPI (allows 1-4).
+- `targetID` {string} - The id of an element on the webpage to populate the list in.
+- `elementType` {string}- The type of element to generate when populating the list.
 
 
-- name - Name of the 
-### getShipList (page, targetID, elementType)
-### getShipDetails (id, amount)
 
-## Index.js
-### createWarningBox(message)
-### createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, amount)
-### addToList(name, id, manufacturer, model, cost, cargo, crew, amount)
-### soundLoaderIndex()
 
-## Ship_details.js
-### createItemDetailsII(source, targets, titles)
-### addToListII(source, targetID, targets, titles)
-### function addListenerToButtons()
+## getShipDetails (id, amount)
+Makes an api call to SWAPI to get the information on a ship with a given ID, then uses `addToList()` to generate & append the information to the page.
+
+- `id` {string} - Id used to specify which ship to make an API call for
+- `amount` {string} - The amount of ships that are being planned on being added. Passed to inner functions.
+
+# Index.js
+
+## createWarningBox(message)
+Creates a warning box screen with whatever `messsage` you choose to put in it. It is dismissed whenever a user clicks on it.
+ - `message` {string} - String value containing the messsage you want to put in thte message box.
+
+## createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, amount)
+Creates an element with the included information as its contents. Also gives the container buttons to increment/decrement the amount in the container. The element is deleted when the amount reaches 0. **Does not append to document. See** `addToList()` **for appending to the DOM**
+- `name` {string} - Name of the ship
+- `id` {string} - The id of the ship. Used for dupe protection against creating two elements for the same ship.
+- `manufacturer` {string} - The ships manufacturer
+- `model` {string} -  The ships model
+- `cost` {string} - The ships cost in credits
+- `crew` {string} - The recommended/minimum crew required.
+- `amount` {string} - How many ships are being added.
+
+
+## addToList(name, id, manufacturer, model, cost, cargo, crew, amount)
+Intermediary function thar appends the result of createSelectedItem() to the DOM. See `createSelectedItem()` for more information.
+
+## soundLoaderIndex()
+Helper function explicitly for loading in sounds on index.html. Prevents errors froim sounds from attempting to be loaded on other pages. Takes no additional input.
+
+
+# Ship_details.js
+
+## createItemDetailsII(source, targets, titles)
+Improved version of createItemDetails that allows for dynamic creation of elements based on input arrays. Depending on length of arrays will provide a title, followed by the keys value. Targets and titles should be the same length or the keys will map to undefined. **Keys with no title will not be mapped onto the new element.**
+
+- `source` {object} - Source info where keys are going to be referenced into the element/
+- `targets` {array} - Array of keys stored in the source that will be used to get information from `source`. Mapped syncronously with `titles`
+- `titles` {array} - Titles of elements that will be prepended before the target keys in the object. Mapped synchronously with `targets`
+
+## addToListII(source, targetID, targets, titles)
+Intermediary function that appends the result of createItemDetailsII() to DOM. See `createItemDetailsII()` for more information.
+
+## function addListenerToButtons()
+Loops through all of the ships added to the shipList and adds an event listener that makes an API call for the ships information the passes it through addToListII() and plays an audio cue when ran.
+- This function is also made to reduce API calls by having the existing information that was already called hidden if another call is made. Attempting to get information on the a previous ships will toggle that ships information into focus instead of making another API call.
 
 
 # Stretch Goals
