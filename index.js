@@ -157,6 +157,11 @@ function soundLoaderIndex(){
     incrementSound.type = "audio/ogg"
     decrementSound.type = "audio/ogg"
     removeSound.type = "audio/ogg"
+    
+    errorSound.volume = 0.5
+    removeSound.volume = 0.5
+    incrementSound.volume = 0.5
+    decrementSound.volume = 0.5
 }
 
 if(document.getElementById("formShip")){

@@ -5,6 +5,7 @@ let successSound = document.createElement("AUDIO")
 
 successSound.src = "../data/music/sharp_echo.wav"
 successSound.type = "audio/wav"
+successSound.volume = 0.25
 
 // Element References
 
