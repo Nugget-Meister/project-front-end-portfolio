@@ -27,9 +27,7 @@ function getShipList(page, targetID, elementType) {
             } else{
                 formShipSelection.append(createShipSelector(ship.name, ship.uid, elementType))
             }
-            
-            // console.log(ship.name)
-        }    
+        }   
     })
 }
 
