@@ -2,24 +2,6 @@
 
 import { getShipList, getShipDetails, ships_url } from "./modules/api_calls.js";
 
-let errorSound = document.createElement("AUDIO")
-let successSound = document.createElement("AUDIO")
-let incrementSound = document.createElement("AUDIO")
-let decrementSound = document.createElement("AUDIO")
-let removeSound = document.createElement("AUDIO")
-
-errorSound.src = "./data/music/misc_menu_4.wav"
-successSound.src = "./data/music/sharp_echo.wav"
-incrementSound.src = "./data/music/beep_01.ogg"
-decrementSound.src = "./data/music/beep_02.ogg"
-removeSound.src = "./data/music/beep_03.ogg"
-
-errorSound.type = "audio/wav"
-successSound.type = "audio/wav"
-incrementSound.type = "audio/ogg"
-decrementSound.type = "audio/ogg"
-removeSound.type = "audio/ogg"
-
 // Prevent default on submit
 let form = document.querySelector("form")
 if(form) {
@@ -156,8 +138,29 @@ function addToList(name, id, manufacturer, model, cost, cargo, crew, amount) {
     itemList.append(createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, amount))    
 }
 
+function soundLoaderIndex(){
+    let errorSound = document.createElement("AUDIO")
+    let successSound = document.createElement("AUDIO")
+    let incrementSound = document.createElement("AUDIO")
+    let decrementSound = document.createElement("AUDIO")
+    let removeSound = document.createElement("AUDIO")
+    
+    errorSound.src = "./data/music/misc_menu_4.wav"
+    successSound.src = "./data/music/sharp_echo.wav"
+    incrementSound.src = "./data/music/beep_01.ogg"
+    decrementSound.src = "./data/music/beep_02.ogg"
+    removeSound.src = "./data/music/beep_03.ogg"
+    
+    errorSound.type = "audio/wav"
+    successSound.type = "audio/wav"
+    incrementSound.type = "audio/ogg"
+    decrementSound.type = "audio/ogg"
+    removeSound.type = "audio/ogg"
+}
+
 if(document.getElementById("formShip")){
     getShipList(1,"ship","option")
+    soundLoaderIndex()
 }
 
 export {
