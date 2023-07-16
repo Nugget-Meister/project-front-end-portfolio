@@ -70,14 +70,31 @@ h2 {
 
 h2 {
     font-family: Tektur, sans-serif;
-    font-size: 32pt;
+    font-size: 24pt;
     text-align: center;
+    grid-column: 1/ span 2
 }
 
 #formShip {
     display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
+select, input[type=number] {
+    font-family: tektur;
+    width: 100%;
+    text-align: center;
+    font-size: 16pt;
+    grid-column: 1/ span 2;
+    border: none;
+    padding: 0;
+}
+button {
+    display: inline;
+    border: none;
+    padding: none;
+
+}
 
 /* Items in list */
 

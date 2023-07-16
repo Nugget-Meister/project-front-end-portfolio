@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fleet Command</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <script src="index.js" type="module" defer></script>
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -31,15 +32,14 @@
                     <h2>
                         Select a ship
                     </h2>
-                    
                     <!-- <label for="ship">Ship</label> -->
                     <select name="ship" id="ship" required>
-                        <option value="2"></option>
+                        <option value="0">Nothing</option>
                     </select><br>
-                    <label for="amount" >Amount</label>
+                    <h2>Amount</h2>
                         <input type="number" name="amount" id="amount" value="0"/>
-                    <br>
                     <button type="reset">Reset</button>
+
                     <button type="submit">Submit</button>
                 </form>
             </section>

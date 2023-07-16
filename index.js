@@ -10,13 +10,23 @@ if(form) {
         let shipName = e.target.ship.innerText
         let shipID = e.target.ship.value
         let shipAmount = e.target.amount.value
-    
-        if(!document.getElementById(shipID)) {
-            getShipDetails(shipID, shipName, shipAmount)
+
+        if(shipID == 0) {
+            let container = document.getElementById("container")
+            let messageBox = document.createElement("div")
+            messageBox.innerText = "No ship selected. Select a ship to add to your fleet. Click to dismiss."
+            messageBox.addEventListener("click",(e) =>{
+                e.target.remove()
+            })
+            container.prepend(messageBox)
+
         } else {
-            //Should add an element to the dom when item exists
+            if(!document.getElementById(shipID)) {
+                getShipDetails(shipID, shipName, shipAmount)
+            } else {
+                //Should add an element to the dom when item exists
+            }
         }
-    
     }) 
 }
   
