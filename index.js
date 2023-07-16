@@ -148,7 +148,7 @@ function incrementAmount(amount){
     
 }
 
-// getShipList(1,"ship","option")
+getShipList(1,"ship","option")
 
 export {
     createSelectedItem,
