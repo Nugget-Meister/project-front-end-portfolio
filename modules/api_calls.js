@@ -1,5 +1,4 @@
 import {
-    createSelectedItem,
     addToList
 } from "../index.js"
 
@@ -37,7 +36,6 @@ function getShipDetails(id, amount) {
     let result = fetch(ships_url+"/"+id)
     .then(data => data.json())
     .then(json => {
-        // console.log(json.result.properties)
         return json.result.properties
     })
     .then(result => {

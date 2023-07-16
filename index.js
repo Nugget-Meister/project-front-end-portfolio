@@ -139,6 +139,5 @@ if(document.getElementById("formShip")){
 }
 
 export {
-    createSelectedItem,
     addToList,
 }
