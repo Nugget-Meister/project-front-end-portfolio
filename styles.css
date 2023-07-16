@@ -128,3 +128,18 @@ button:hover {
     transition: 250ms;
     background-color: var(--cadet-gray);
 }
+
+.item-in-list span {
+    font-family: sans-serif;
+    font-style: italic;
+    font-kerning: 12pt;
+    letter-spacing: 2px;
+}
+.item-in-list button {
+    border: solid;
+    border-radius: 15px;
+    margin-left: 15px;
+    margin-right: 10px;
+    background-color: var(--jet);
+    color: white;
+}

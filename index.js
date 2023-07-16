@@ -7,20 +7,12 @@ let form = document.querySelector("form")
 if(form) {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        // let shipName = e.target.ship.innerText
         let shipID = e.target.ship.value
         let shipAmount = e.target.amount.value
 
-        if(shipID == 0) {
-            let container = document.getElementById("container")
-            let messageBox = document.createElement("div")
-            messageBox.classList.toggle("warning")
-            messageBox.innerText = "No ship selected. Select a ship to add to your fleet. Click to dismiss."
-            messageBox.addEventListener("click",(e) =>{
-                e.target.remove()
-            })
-            container.prepend(messageBox)
-
+        if(shipID == 0 || shipAmount <= 0) {
+            shipID == 0 ? createWarningBox("No ship selected. Select a ship to add to your fleet. Click to dismiss.") : null
+            shipAmount <= 0 ? createWarningBox("Invalid amount entered. Can only add 1 or greater ships. Click to dismiss.") : null
         } else {
             if(!document.getElementById(shipID)) {
                 getShipDetails(shipID, shipAmount)
@@ -30,48 +22,17 @@ if(form) {
         }
     }) 
 }
-  
 
-
-//-- API CALLS
-// Api call for information then populate list 
-
-// function getShipList() {
-//     let formShipSelection = document.getElementById("ship")
-//     let result = fetch(ships_url)
-//     .then(data => data.json())
-//     .then(json => {
-//         for(ship of json.results){
-//             formShipSelection.append(createShipSelector(ship.name))
-//             console.log(ship.name)
-//         }    
-//     })
-// }
-
-// function getShipDetails(id, name, amount) {
-//     let result = fetch(ships_url+id)
-//     .then(data => data.json())
-//     .then(json => {
-//         console.log(json.result.properties)
-//         return json.result.properties
-//     })
-//     .then(result => {
-//         let thisManufacturer = result.manufacturer
-//         let thisModel = result.model
-//         let thisCost = result.cost_in_credits
-//         let thisCargo = result.cargo_capacity
-//         let thisCrew = result.crew
-
-//         addToList(name, id, thisManufacturer, thisModel, thisCost, thisCargo, thisCrew, amount);
-//     })
-// }
-
-
-
-//-- ITEM CREATORS
-// Create option for a form
-
-
+function createWarningBox(message) {
+    let container = document.getElementById("container")
+    let messageBox = document.createElement("div")
+    messageBox.classList.toggle("warning")
+    messageBox.innerText = message || "${default_message}"
+    messageBox.addEventListener("click",(e) =>{
+        e.target.remove()
+    })
+    container.prepend(messageBox)
+}
 
 function createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, amount) {
     let section = document.createElement("section")
@@ -127,9 +88,12 @@ function createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, am
             dataAmount.innerText = Number(dataAmount.innerText) + 1
         }   
     })
-    buttonDecrement.addEventListener("click", () => {
-        if(Number(dataAmount.innerText) > 0) {
+    buttonDecrement.addEventListener("click", (e) => {
+        console.log(e.target.parent)
+        if(Number(dataAmount.innerText) > 1) {
             dataAmount.innerText = Number(dataAmount.innerText) - 1
+        } else {
+            section.remove()
         }
     })
 
