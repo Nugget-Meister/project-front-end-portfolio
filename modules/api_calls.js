@@ -18,13 +18,8 @@ function getShipList(page, targetID, elementType) {
     let result = fetch(`${ships_url}?page=${page}&limit=10`)
     .then(data => data.json())
     .then(json => {
-
         for(let ship of json.results){
-            if(elementType != "option") {
-                formShipSelection.append(createShipSelector(ship.name, ship.uid, elementType))
-            } else{
-                formShipSelection.append(createShipSelector(ship.name, ship.uid, elementType))
-            }
+            formShipSelection.append(createShipSelector(ship.name, ship.uid, elementType))
         }   
     }).then(
         document.getElementById("loading").remove()
