@@ -36,7 +36,7 @@ a {
 
 a:hover {
     transition: 250ms;
-    width: 35vh;
+    width: 35vw;
     background-color: rgb(255, 248, 209);
     color: black;
 }
@@ -157,4 +157,24 @@ button:hover {
 
 .item-in-list button:hover {
     background-color: var(--naples-yellow);
+}
+
+@media (max-width: 800px){
+    #container {
+        /* display: grid; */
+        grid-template-columns: 1fr;
+        /* grid-template-rows: 1fr 1fr; */
+    }
+    .warning {
+        grid-row: 1;
+    }
+    #add-item{
+        grid-column: 1;
+        grid-row: 2;
+    }
+    #item-list{
+        display: block;
+        grid-column: 1;
+        grid-row: 3;
+    }
 }

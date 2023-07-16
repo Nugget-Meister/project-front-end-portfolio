@@ -49,7 +49,8 @@ if(form) {
 }
 
 function createWarningBox(message) {
-    let container = document.getElementById("container")
+
+    let container = document.getElementById("warnings")
     let messageBox = document.createElement("div")
     messageBox.classList.toggle("warning")
     messageBox.innerText = message || "${default_message}"
