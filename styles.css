@@ -110,6 +110,7 @@ select, input[type=number] {
 }
 
 button {
+    transition: 100ms;
     display: inline;
     border-radius: 25px;
     padding: 10px;
@@ -160,6 +161,12 @@ button:hover {
 }
 
 @media (max-width: 800px){
+    #audio {
+        text-align: center;
+    }
+    h1 {
+        text-align: center;
+    }
     #container {
         /* display: grid; */
         grid-template-columns: 1fr;
@@ -168,13 +175,26 @@ button:hover {
     .warning {
         grid-row: 1;
     }
-    #add-item{
+    #add-item {
         grid-column: 1;
         grid-row: 2;
     }
-    #item-list{
+    #item-list {
         display: block;
         grid-column: 1;
         grid-row: 3;
+    }
+
+    .navbar {
+        display: grid;
+    }
+    a {
+        margin: ;
+        width: 50%;
+        border-radius: 25px;
+        justify-self: center;
+    }
+    a:hover {
+        width: 85%
     }
 }
