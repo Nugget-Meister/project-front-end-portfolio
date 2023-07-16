@@ -5,7 +5,7 @@ let shipList = document.getElementById("ship-list")
 
 
 let neededTargets = ["name","model","cargo_capacity"]
-let neededTitles = ["Name: ", "Model: ", "Cargo Capacity:"]
+let neededTitles = ["Name: ", "Model: ", "Cargo Capacity: "]
 
 function createItemDetails(name, id, manufacturer, model, cost, cargo, crew, amount) {
     let section = document.createElement("section")
@@ -85,8 +85,15 @@ function createItemDetailsII(source, targets, titles) {
     let section = document.createElement("section")
     section.setAttribute("id", "$value")
 
-    for(let item of titles){
-        console.log(item)
+    for(let item in titles){
+        // console.log(titles[item], targets[item])
+        let itemTitle = document.createElement("span")
+        let itemValue = document.createElement("span")
+        let newBreak = document.createElement("br")
+
+        itemTitle.innerText = titles[item]
+        itemValue.innerText = source.properties[targets[item]]
+        section.append(itemTitle, itemValue, newBreak)
     }
 
     return section
@@ -100,7 +107,7 @@ function addToListII(source, targetID, targets, titles) {
 }
 
 
-// addToListII("","ship-details", neededTargets, neededTitles)
+// addToListII({properties: {loaf: "buns"}},"ship-details", neededTargets, neededTitles)
 
 
 for(let ship of shipList.children){
