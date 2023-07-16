@@ -50,6 +50,8 @@ h1 {
 }
 
 
+
+
 /* Split the list and the form adder down the middle */
 #add-item {
     grid-column: 1;
@@ -63,6 +65,19 @@ h1 {
 h2 {
     margin: 0;
 }
+
+/* Form Elements */
+
+h2 {
+    font-family: Tektur, sans-serif;
+    font-size: 32pt;
+    text-align: center;
+}
+
+#formShip {
+    display: grid;
+}
+
 
 /* Items in list */
 

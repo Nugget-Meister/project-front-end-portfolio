@@ -12,3 +12,4 @@ Hello Commander! Welcome to fleet command. With the full might of the New Galact
 - At this point you've spent all this time picking out ships, but surely you need to refresh your memory from time to time. Simply select a ship by clicking on it and watch as the information fills the display.
 
 source for song yd - openGameArt - https://opengameart.org/content/background-space-track
+Used faviccon.io to generate
