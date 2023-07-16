@@ -8,11 +8,11 @@ let incrementSound = document.createElement("AUDIO")
 let decrementSound = document.createElement("AUDIO")
 let removeSound = document.createElement("AUDIO")
 
-errorSound.src = "../data/music/misc_menu_4.wav"
-successSound.src = "../data/music/sharp_echo.wav"
-incrementSound.src = "../data/music/beep_01.ogg"
-decrementSound.src = "../data/music/beep_02.ogg"
-removeSound.src = "../data/music/beep_03.ogg"
+errorSound.src = "./data/music/misc_menu_4.wav"
+successSound.src = "./data/music/sharp_echo.wav"
+incrementSound.src = "./data/music/beep_01.ogg"
+decrementSound.src = "./data/music/beep_02.ogg"
+removeSound.src = "./data/music/beep_03.ogg"
 
 errorSound.type = "audio/wav"
 successSound.type = "audio/wav"

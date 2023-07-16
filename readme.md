@@ -11,6 +11,15 @@ Hello Commander! Welcome to fleet command. With the full might of the New Galact
 
 ## How to Use
 
+### Fleet Command
+
+- Depending on the size of the screen you should see a form on the left or in the center of 
+
+1. Pick a ship from the dropdown menu, failure to select a ship will have an error show up in the DOM.
+
+2. Select a number between 1-10. The maximum amount of ships you can have of a given type in a fleet is 10. Any **higher** will result in an error showing up on the DOM. Attempting to put less than 1 will also have an error show up on the DOM
+
+On the right hand side of the screen or on the bottom, You will see a brief description of the ships stats on your screen. This information inclui
 
 
 source for song yd - openGameArt - https://opengameart.org/content/background-space-track
