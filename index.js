@@ -22,7 +22,7 @@ if(form) {
 
         successSound.load()
         errorSound.load()
-        
+
         if(shipID == 0 || shipAmount <= 0) {
             errorSound.play()
             shipID == 0 ? createWarningBox("No ship selected. Select a ship to add to your fleet. Click to dismiss.") : null
@@ -135,7 +135,7 @@ function addToList(name, id, manufacturer, model, cost, cargo, crew, amount) {
 }
 
 if(document.getElementById("formShip")){
-    // getShipList(1,"ship","option")
+    getShipList(1,"ship","option")
 }
 
 export {
