@@ -14,6 +14,7 @@ if(form) {
         if(shipID == 0) {
             let container = document.getElementById("container")
             let messageBox = document.createElement("div")
+            messageBox.classList.toggle("warning")
             messageBox.innerText = "No ship selected. Select a ship to add to your fleet. Click to dismiss."
             messageBox.addEventListener("click",(e) =>{
                 e.target.remove()

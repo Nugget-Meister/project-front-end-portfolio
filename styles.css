@@ -49,7 +49,13 @@ h1 {
     grid-template-columns: 1fr 1fr;
 }
 
-
+.warning {
+    background-color: rgb(99, 90, 90);
+    grid-column: 1 / span 2;
+    padding: 10px;
+    color: orange;
+    font-family:  Tektur, sans-serif;
+}
 
 
 /* Split the list and the form adder down the middle */
@@ -88,12 +94,20 @@ select, input[type=number] {
     grid-column: 1/ span 2;
     border: none;
     padding: 0;
+    border-radius: 25px;
+    color: gray;
 }
+
 button {
     display: inline;
-    border: none;
-    padding: none;
+    border-radius: 25px;
+    padding: 10px;
+    margin-top: 10px;
+}
 
+button:hover {
+    transition: 250ms;
+    background-color: var(--naples-yellow);
 }
 
 /* Items in list */
