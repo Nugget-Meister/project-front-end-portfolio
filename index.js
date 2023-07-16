@@ -34,7 +34,7 @@ if(form) {
         if(shipID == 0 || shipAmount <= 0 || shipAmount > 10) {
             errorSound.play()
             shipID == 0 ? createWarningBox("No ship selected. Select a ship to add to your fleet. Click to dismiss.") : null
-            shipAmount <= 0 ? createWarningBox("Invalid amount entered. Can only add 1 or greater ships. Click to dismiss.") : null
+            shipAmount <= 0 ? createWarningBox("Invalid amount entered. Can only add 1-10 ships. Click to dismiss.") : null
             shipAmount > 10 ? createWarningBox("Maximum of 10 of each ship in the Fleet! Click to remove.") : null
         } else {
             if(!document.getElementById(shipID)) {
@@ -116,6 +116,7 @@ function createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, am
             incrementSound.play()
             dataAmount.innerText = Number(dataAmount.innerText) + 1
         } else {
+            errorSound.load()
             errorSound.play()
             createWarningBox("Maximum of 10 of each ship in the Fleet! Click to remove.")
         }   
@@ -123,8 +124,12 @@ function createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, am
     buttonDecrement.addEventListener("click", (e) => {
         console.log(e.target.parent)
         if(Number(dataAmount.innerText) > 1) {
+            decrementSound.load()
+            decrementSound.play()
             dataAmount.innerText = Number(dataAmount.innerText) - 1
         } else {
+            removeSound.load()
+            removeSound.play()
             section.remove()
         }
     })

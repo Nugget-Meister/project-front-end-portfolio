@@ -84,7 +84,6 @@ function addListenerToButtons() {
                 }
             }
             if(idCheck){
-                console.log("item exists")
                 //Show element clicked on
                 if(idCheck.classList[0] == "hidden") {
                     idCheck.classList.toggle("hidden")
@@ -93,7 +92,6 @@ function addListenerToButtons() {
                 let result = fetch(ships_url+"/"+id)
                 .then(data => data.json())
                 .then(json => {
-                    console.log(json.result)
                     addToListII(json.result,"ship-details", neededTargets, neededTitles)
                 })
             }        
