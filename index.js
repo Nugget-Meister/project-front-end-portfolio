@@ -4,13 +4,21 @@ import { getShipList, getShipDetails, ships_url } from "./modules/api_calls.js";
 
 let errorSound = document.createElement("AUDIO")
 let successSound = document.createElement("AUDIO")
+let incrementSound = document.createElement("AUDIO")
+let decrementSound = document.createElement("AUDIO")
+let removeSound = document.createElement("AUDIO")
 
 errorSound.src = "../data/music/misc_menu_4.wav"
-errorSound.type = "audio/wav"
-
 successSound.src = "../data/music/sharp_echo.wav"
-successSound.type = "audio/wav"
+incrementSound.src = "../data/music/beep_01.ogg"
+decrementSound.src = "../data/music/beep_02.ogg"
+removeSound.src = "../data/music/beep_03.ogg"
 
+errorSound.type = "audio/wav"
+successSound.type = "audio/wav"
+incrementSound.type = "audio/ogg"
+decrementSound.type = "audio/ogg"
+removeSound.type = "audio/ogg"
 
 // Prevent default on submit
 let form = document.querySelector("form")
@@ -23,10 +31,11 @@ if(form) {
         successSound.load()
         errorSound.load()
 
-        if(shipID == 0 || shipAmount <= 0) {
+        if(shipID == 0 || shipAmount <= 0 || shipAmount > 10) {
             errorSound.play()
             shipID == 0 ? createWarningBox("No ship selected. Select a ship to add to your fleet. Click to dismiss.") : null
             shipAmount <= 0 ? createWarningBox("Invalid amount entered. Can only add 1 or greater ships. Click to dismiss.") : null
+            shipAmount > 10 ? createWarningBox("Maximum of 10 of each ship in the Fleet! Click to remove.") : null
         } else {
             if(!document.getElementById(shipID)) {
                 successSound.play()
@@ -45,6 +54,8 @@ function createWarningBox(message) {
     messageBox.classList.toggle("warning")
     messageBox.innerText = message || "${default_message}"
     messageBox.addEventListener("click",(e) =>{
+        removeSound.load()
+        removeSound.play()
         e.target.remove()
     })
     container.prepend(messageBox)
@@ -101,7 +112,12 @@ function createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, am
     // Event Listeners for Buttons
     buttonIncrement.addEventListener("click", () => {     
         if(Number(dataAmount.innerText) < 10) {
+            incrementSound.load()
+            incrementSound.play()
             dataAmount.innerText = Number(dataAmount.innerText) + 1
+        } else {
+            errorSound.play()
+            createWarningBox("Maximum of 10 of each ship in the Fleet! Click to remove.")
         }   
     })
     buttonDecrement.addEventListener("click", (e) => {

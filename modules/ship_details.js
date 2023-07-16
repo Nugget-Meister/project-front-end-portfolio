@@ -103,7 +103,7 @@ function addListenerToButtons() {
 }
 
 if(document.getElementById("ship-list")){
-    // getShipList(1,"ship-list","span")
+    getShipList(1,"ship-list","span")
 }
 
 

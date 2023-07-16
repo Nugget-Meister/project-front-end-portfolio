@@ -8,7 +8,11 @@
 }
 body {
     background-image: url("./images/space.jpg");
+}
 
+.active {
+    background-color: var(--naples-yellow);
+    color: black
 }
 
 /* Nav Bar */
