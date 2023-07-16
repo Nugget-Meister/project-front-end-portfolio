@@ -6,7 +6,10 @@
     --jet: #333138ff;
     --columbia-blue: #aed4e6ff;
 }
+body {
+    background-image: url("./images/space.jpg");
 
+}
 
 /* Nav Bar */
 .navbar{
@@ -47,6 +50,8 @@ h1 {
     background-color: var(--davys-gray);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-radius: 0px 0px 25px 25px;
+
 }
 
 .warning {
@@ -84,6 +89,8 @@ h2 {
 #formShip {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-bottom: 15px;
+    padding-left: 10px;
 }
 
 select, input[type=number] {
@@ -126,7 +133,7 @@ button:hover {
 
 .item-in-list:hover {
     transition: 250ms;
-    background-color: var(--cadet-gray);
+    background-color: rgb(65, 64, 64);
 }
 
 .item-in-list span {
@@ -142,4 +149,8 @@ button:hover {
     margin-right: 10px;
     background-color: var(--jet);
     color: white;
+}
+
+.item-in-list button:hover {
+    background-color: var(--naples-yellow);
 }

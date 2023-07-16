@@ -2,6 +2,16 @@
 
 import { getShipList, getShipDetails, ships_url } from "./modules/api_calls.js";
 
+let errorSound = document.createElement("AUDIO")
+let successSound = document.createElement("AUDIO")
+
+errorSound.src = "../data/music/misc_menu_4.wav"
+errorSound.type = "audio/wav"
+
+successSound.src = "../data/music/sharp_echo.wav"
+successSound.type = "audio/wav"
+
+
 // Prevent default on submit
 let form = document.querySelector("form")
 if(form) {
@@ -11,13 +21,16 @@ if(form) {
         let shipAmount = e.target.amount.value
 
         if(shipID == 0 || shipAmount <= 0) {
+            errorSound.play()
             shipID == 0 ? createWarningBox("No ship selected. Select a ship to add to your fleet. Click to dismiss.") : null
             shipAmount <= 0 ? createWarningBox("Invalid amount entered. Can only add 1 or greater ships. Click to dismiss.") : null
         } else {
             if(!document.getElementById(shipID)) {
+                successSound.play()
                 getShipDetails(shipID, shipAmount)
             } else {
-                //Should add an element to the dom when item exists
+                errorSound.play()
+                createWarningBox("This ship already exists in your fleet! Click to dismiss.")
             }
         }
     }) 
@@ -119,7 +132,7 @@ function addToList(name, id, manufacturer, model, cost, cargo, crew, amount) {
 }
 
 if(document.getElementById("formShip")){
-    getShipList(1,"ship","option")
+    // getShipList(1,"ship","option")
 }
 
 export {

@@ -19,9 +19,10 @@
 
 #ship-list span {
     padding: 1vw;
+    transition: 100ms;
 }
 #ship-list span:hover {
-  
+    transition: 250ms;
     background-color: gray;
 }
 
