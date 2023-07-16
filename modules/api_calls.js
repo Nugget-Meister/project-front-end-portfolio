@@ -20,7 +20,6 @@ function getShipList(page, targetID, elementType) {
     .then(data => data.json())
     .then(json => {
         console.log(json)
-
         for(let ship of json.results){
             if(elementType != "option") {
                 formShipSelection.append(createShipSelector(ship.name, ship.uid, elementType))
@@ -32,7 +31,7 @@ function getShipList(page, targetID, elementType) {
 }
 
 
-function getShipDetails(id, name, amount) {
+function getShipDetails(id, amount) {
     let result = fetch(ships_url+"/"+id)
     .then(data => data.json())
     .then(json => {
@@ -46,8 +45,9 @@ function getShipDetails(id, name, amount) {
         let thisCost = result.cost_in_credits
         let thisCargo = result.cargo_capacity
         let thisCrew = result.crew
+        let thisName = result.name
 
-        addToList(name, id, thisManufacturer, thisModel, thisCost, thisCargo, thisCrew, amount);
+        addToList(thisName, id, thisManufacturer, thisModel, thisCost, thisCargo, thisCrew, amount);
     })
 }
 

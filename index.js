@@ -7,7 +7,7 @@ let form = document.querySelector("form")
 if(form) {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        let shipName = e.target.ship.innerText
+        // let shipName = e.target.ship.innerText
         let shipID = e.target.ship.value
         let shipAmount = e.target.amount.value
 
@@ -23,7 +23,7 @@ if(form) {
 
         } else {
             if(!document.getElementById(shipID)) {
-                getShipDetails(shipID, shipName, shipAmount)
+                getShipDetails(shipID, shipAmount)
             } else {
                 //Should add an element to the dom when item exists
             }
@@ -154,7 +154,9 @@ function addToList(name, id, manufacturer, model, cost, cargo, crew, amount) {
     itemList.append(createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, amount))    
 }
 
-// getShipList(1,"ship","option")
+if(document.getElementById("formShip")){
+    getShipList(1,"ship","option")
+}
 
 export {
     createSelectedItem,
