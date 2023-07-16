@@ -1,5 +1,12 @@
 import { getShipList, getShipDetails, ships_url } from "../modules/api_calls.js";
 
+
+let shipList = document.getElementById("ship-list")
+
+
+let neededTargets = ["name","model","cargo_capacity"]
+let neededTitles = ["Name: ", "Model: ", "Cargo Capacity:"]
+
 function createItemDetails(name, id, manufacturer, model, cost, cargo, crew, amount) {
     let section = document.createElement("section")
     //Id for duplicate protection
@@ -74,17 +81,43 @@ function createItemDetails(name, id, manufacturer, model, cost, cargo, crew, amo
     return section
 }
 
-// getShipList(1,"ship-list","span")
+function createItemDetailsII(source, targets, titles) {
+    let section = document.createElement("section")
+    section.setAttribute("id", "$value")
 
-let shipList = document.getElementById("ship-list")
+    for(let item of titles){
+        console.log(item)
+    }
 
-// console.log(shipList.children)
+    return section
+}
+
+function addToListII(source, targetID, targets, titles) {
+
+    let thisTarget = document.getElementById(targetID)
+    // console.log(thisTarget)
+    thisTarget.append(createItemDetailsII(source,targets,titles))
+}
+
+
+// addToListII("","ship-details", neededTargets, neededTitles)
+
 
 for(let ship of shipList.children){
     // console.log(ship)
     ship.addEventListener("click", () => {
-        console.log(ship)
+        // console.log(ship.getAttribute("value"))
+        let id = ship.getAttribute("value")
+        let result = fetch(ships_url+"/"+id)
+        .then(data => data.json())
+        .then(json => {
+            console.log(json.result)
+            addToListII(json.result,"ship-details", neededTargets, neededTitles)
+        })
     })
 
 }
 
+
+
+// getShipList(1,"ship-list","span")

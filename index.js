@@ -143,12 +143,7 @@ function addToList(name, id, manufacturer, model, cost, cargo, crew, amount) {
     itemList.append(createSelectedItem(name, id, manufacturer, model, cost, cargo, crew, amount))    
 }
 
-//-- Page manipulators
-function incrementAmount(amount){
-    
-}
-
-getShipList(1,"ship","option")
+// getShipList(1,"ship","option")
 
 export {
     createSelectedItem,
