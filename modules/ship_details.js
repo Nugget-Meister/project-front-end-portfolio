@@ -1,9 +1,15 @@
-import { getShipList, getShipDetails, ships_url } from "../modules/api_calls.js";
+import {getShipList, ships_url} from "../modules/api_calls.js";
 
+// Audio Cues
+let successSound = document.createElement("AUDIO")
+
+successSound.src = "../data/music/sharp_echo.wav"
+successSound.type = "audio/wav"
+
+// Element References
 
 let shipList = document.getElementById("ship-list")
 let shipDetails = document.getElementById("ship-details")
-
 
 let neededTargets = [
     // "name",
@@ -16,8 +22,8 @@ let neededTargets = [
     "passengers",
     "hyperdrive_rating",
     "max_atmosphering_speed"
-
 ]
+
 let neededTitles = [
     // "Name: ",
     "Starship Class: ",
@@ -29,9 +35,7 @@ let neededTitles = [
     "Max Passengers: ",
     "Hyperdrive Rating: ",
     "Atmospheric Speed: "
-
 ]
-
 
 function createItemDetailsII(source, targets, titles) {
     let section = document.createElement("section")
@@ -59,22 +63,21 @@ function createItemDetailsII(source, targets, titles) {
 
 function addToListII(source, targetID, targets, titles) {
     let thisTarget = document.getElementById(targetID)
-    // console.log(thisTarget)
     thisTarget.append(createItemDetailsII(source,targets,titles))
 }
 
 
-// addToListII({properties: {loaf: "buns"}},"ship-details", neededTargets, neededTitles)
-
 function addListenerToButtons() {
     for(let ship of shipList.children){
-        // console.log(ship)
+
         ship.addEventListener("click", () => {
-            // console.log(ship.getAttribute("value"))
+            //Run load then play to allow interruption
+            successSound.load()
+            successSound.play()
             let id = ship.getAttribute("value")
             let idCheck = document.getElementById(id)
             
-            //Hide everything
+            //Hide all elements
             for(let child of shipDetails.children){
                 if(child.classList[0] != "hidden"){
                     child.classList.toggle("hidden")
@@ -86,7 +89,6 @@ function addListenerToButtons() {
                 if(idCheck.classList[0] == "hidden") {
                     idCheck.classList.toggle("hidden")
                 }
-        
             } else {
                 let result = fetch(ships_url+"/"+id)
                 .then(data => data.json())

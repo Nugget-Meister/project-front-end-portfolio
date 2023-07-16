@@ -20,6 +20,9 @@ if(form) {
         let shipID = e.target.ship.value
         let shipAmount = e.target.amount.value
 
+        successSound.load()
+        errorSound.load()
+        
         if(shipID == 0 || shipAmount <= 0) {
             errorSound.play()
             shipID == 0 ? createWarningBox("No ship selected. Select a ship to add to your fleet. Click to dismiss.") : null
@@ -137,5 +140,5 @@ if(document.getElementById("formShip")){
 
 export {
     createSelectedItem,
-    addToList
+    addToList,
 }
