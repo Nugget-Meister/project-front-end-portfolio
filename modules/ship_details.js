@@ -34,7 +34,7 @@ let neededTitles = [
 
 function createItemDetailsII(source, targets, titles) {
     let section = document.createElement("section")
-    section.setAttribute("id", "$value")
+    section.setAttribute("id", source.uid)
 
     //Ship Name
 
@@ -57,9 +57,9 @@ function createItemDetailsII(source, targets, titles) {
 }
 
 function addToListII(source, targetID, targets, titles) {
-
     let thisTarget = document.getElementById(targetID)
     // console.log(thisTarget)
+
     thisTarget.append(createItemDetailsII(source,targets,titles))
 }
 
@@ -68,17 +68,22 @@ function addToListII(source, targetID, targets, titles) {
 
 function addListenerToButtons() {
     for(let ship of shipList.children){
-        console.log(ship)
+        // console.log(ship)
 
         ship.addEventListener("click", () => {
             // console.log(ship.getAttribute("value"))
             let id = ship.getAttribute("value")
-            let result = fetch(ships_url+"/"+id)
-            .then(data => data.json())
-            .then(json => {
-                console.log(json.result)
-                addToListII(json.result,"ship-details", neededTargets, neededTitles)
-            })
+            let idCheck = document.getElementById(id)
+            if(idCheck){
+                console.log("item exists")
+            } else {
+                let result = fetch(ships_url+"/"+id)
+                .then(data => data.json())
+                .then(json => {
+                    console.log(json.result)
+                    addToListII(json.result,"ship-details", neededTargets, neededTitles)
+                })
+            }        
         })
     
     }
@@ -86,9 +91,9 @@ function addListenerToButtons() {
 
 
 
-getShipList(1,"ship-list","span")
+// getShipList(1,"ship-list","span")
 
 setTimeout(() => {
     addListenerToButtons()
 },1000)
-// addListenerToButtons()
+
